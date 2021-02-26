@@ -22,7 +22,13 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/home';
-    public const INDEX = 'index';
+
+    /**
+     * The path to the "index" route for your application.
+     *
+     * @var string
+     */
+    public const INDEX = '/';
 
     /**
      * Define your route model bindings, pattern filters, etc.

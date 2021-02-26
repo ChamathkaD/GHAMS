@@ -13,19 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::middleware('auth')->group(function (){
 
-Route::get('index', function () {
-    return view('index');
-});
-Route::get('profile', function () {
-    return view('profile.index');
-});
+    Route::get('/', function () {
+        return view('index');
+    });
 
-Route::post('profile/update','UserController@updateProfile')->name('update.profile');
+    // profile routes
+    Route::get('profile','UserController@profile')->name('profile');
+    Route::post('profile/update','UserController@updateProfile')->name('update.profile');
+    Route::get('password','UserController@password')->name('password');
+    Route::put('password/update','UserController@updatePassword')->name('update.password');
 
+});
 
 Auth::routes();
 

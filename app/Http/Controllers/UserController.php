@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\SaveUserRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
+    public function profile(){
+        return view('profile.index');
+    }
+
 
     public function updateProfile(SaveUserRequest $request){
 
@@ -50,4 +57,23 @@ class UserController extends Controller
         return back()->with('success','Profile Updated Successfully');
 
     }
+
+    public function password(){
+        return view('profile.updatePassword');
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+
+        if (Hash::check($request->current_password, Auth::user()->password)) {
+            $hashed_password = Hash::make($request->password_confirmation);
+
+            User::where('id', Auth::id())->update([
+                'password' => $hashed_password,
+            ]);
+
+            return back()->with('success', 'Your Password Has been Updated');
+        }
+    }
+
 }

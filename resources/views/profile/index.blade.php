@@ -20,17 +20,23 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="media align-items-center mb-4">
+                                @if(\Illuminate\Support\Facades\Auth::user()->image)
                                 <img class="mr-3" src="{{ asset('img/users/'.Auth::user()->image) }}" width="80" height="80" alt="">
+                                @else
+                                    <img src="{{ asset('img/woman.png') }}" alt="">
+                                @endif
                                 <div class="media-body">
-                                    <h3 class="mb-0">Pikamy Cha</h3>
-                                    <p class="text-muted mb-0">Canada</p>
+                                    <h3 class="mb-0">{{ Auth::user()->first_name }}</h3>
+                                    <p class="text-muted mb-0">{{ Auth::user()->country }}</p>
                                 </div>
                             </div>
 
                             <div class="row mb-5">
 
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-danger px-5">Change Password</button>
+
+
+                                    <a href="{{ route('password') }}" class="btn btn-danger px-5">Change Password </a>
                                 </div>
                             </div>
 
