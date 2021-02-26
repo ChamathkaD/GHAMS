@@ -20,9 +20,11 @@ Route::get('/', function () {
 Route::get('index', function () {
     return view('index');
 });
+Route::get('profile', function () {
+    return view('profile.index');
+});
 
-
-
+Route::post('profile/update','UserController@updateProfile')->name('update.profile');
 
 
 Auth::routes();
