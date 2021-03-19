@@ -95,7 +95,7 @@
 
 </head>
 
-<body class="h-100">
+<body class="h-100 " style="background: url({{asset('img/login_background/'.$setting->login_background)}}); background-repeat: no-repeat;  background-size: cover">
 
 <!--*******************
     Preloader start
@@ -110,12 +110,23 @@
 
 <div class="login-form-bg h-100">
     <div class="container h-100">
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center " style="margin-top: 90px; ">
+                <h1 >{{ $setting->site_full_name }}</h1>
+            </div>
+
+        </div>
+
         <div class="row justify-content-center h-100">
             <div class="col-xl-6">
                 <div class="form-input-content">
                     <div class="card login-form mb-0">
                         <div class="card-body pt-5">
-                            <a class="text-center" href="index.html"> <h4>{{ __('Login') }}</h4></a>
+                            <a class="text-center" href="index.html">
+
+
+                                <h4>{{ __('Login') }}</h4></a>
 
                             <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('login') }}">
                                 @csrf

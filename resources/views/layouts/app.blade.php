@@ -16,38 +16,35 @@
     <!-- Custom Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+@stack('css')
 
-<!--    &lt;!&ndash; Fonts &ndash;&gt;
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    &lt;!&ndash; Styles &ndash;&gt;
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
 </head>
 <body>
 
-        <div id="preloader">
-            <div class="loader">
-                <svg class="circular" viewBox="25 25 50 50">
-                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-                </svg>
-            </div>
-        </div>
-        <div id="main-wrapper">
-        @include('partials.navHeader')
-        @include('partials.header')
-        @include('partials.nkSidbar')
-        @yield('content')
-        @include('partials.footer')
-        </div>
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
+        </svg>
+    </div>
+</div>
+<div id="main-wrapper">
+    @include('partials.navHeader')
+    @include('partials.header')
+    @include('partials.nkSidbar')
+    @yield('content')
+    @include('partials.footer')
+</div>
 
 
-        <!-- Scripts -->
-        <script src="{{ asset('plugins/common/common.min.js') }}"></script>
-        <script src="{{ asset('js/custom.min.js') }}"></script>
-        <script src="{{ asset('js/settings.js') }}"></script>
-        <script src="{{ asset('js/gleek.js') }}"></script>
-        <script src="{{ asset('js/styleSwitcher.js') }}"></script>
+<!-- Scripts -->
+<script src="{{ asset('plugins/common/common.min.js') }}"></script>
+<script src="{{ asset('js/custom.min.js') }}"></script>
+<script src="{{ asset('js/settings.js') }}"></script>
+<script src="{{ asset('js/gleek.js') }}"></script>
+<script src="{{ asset('js/styleSwitcher.js') }}"></script>
+
+@stack('js')
 
 </body>
 </html>

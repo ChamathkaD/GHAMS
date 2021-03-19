@@ -171,6 +171,10 @@
                                         <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('setting.index') }}"><i class="icon-settings"></i> <span>Settings</span></a>
+                                    </li>
+
+                                    <li>
 
 
                                         <a href="{{ route('logout') }}"

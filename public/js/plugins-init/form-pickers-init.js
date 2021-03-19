@@ -3,7 +3,11 @@
 
 
     // MAterial Date picker
-    $('#mdate').bootstrapMaterialDatePicker({
+    $('#mdate1').bootstrapMaterialDatePicker({
+        weekStart: 0,
+        time: false
+    });
+    $('#mdate2').bootstrapMaterialDatePicker({
         weekStart: 0,
         time: false
     });
@@ -32,7 +36,7 @@
     }).find('input').change(function() {
         console.log(this.value);
     });
-    
+
     $('#check-minutes').click(function(e) {
         // Have to stop propagation here
         e.stopPropagation();
