@@ -35,6 +35,16 @@ Route::middleware('auth')->group(function (){
     Route::get('contractor/restore/{id}','ContractorController@restore')->name('contractor.restore');
     Route::get('contractor/force-delete/{id}','ContractorController@forceDelete')->name('contractor.forceDelete');
 
+    //Location
+    Route::resource('location','LocationController');
+    Route::get('location/restore/{id}','LocationController@restore')->name('location.restore');
+    Route::get('location/force-delete/{id}','LocationController@forceDelete')->name('location.forceDelete');
+
+    //Hospital
+    Route::resource('hospital','HospitalController');
+    Route::get('hospital/restore/{id}','HospitalController@restore')->name('hospital.restore');
+    Route::get('hospital/force-delete/{id}','HospitalController@forceDelete')->name('hospital.forceDelete');
+
 });
 
 Auth::routes();

@@ -25,6 +25,30 @@
 
 
 
+
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="icon-location-pin menu-icon"></i><span class="nav-text"> Locations </span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('location.index') }}">All  Locations </a></li>
+                    <li><a href="{{ route('location.create') }}">Create  Locations </a></li>
+                </ul>
+            </li>
+
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="icon-heart menu-icon"></i><span class="nav-text"> Hospitals </span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('hospital.index') }}">All  Hospitals </a></li>
+                    <li><a href="{{ route('hospital.create') }}">Create  Hospitals </a></li>
+                </ul>
+            </li>
+
+
+
+
             <li class="mega-menu mega-menu-sm">
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>

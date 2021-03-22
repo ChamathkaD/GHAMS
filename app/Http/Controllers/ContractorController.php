@@ -88,6 +88,8 @@ class ContractorController extends Controller
         return redirect()->route('contractor.index')->with('success','contractor Updated');
     }
 
+
+
     /**
      * Remove the specified resource from storage.
      *
