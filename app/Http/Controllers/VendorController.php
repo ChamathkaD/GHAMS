@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveVendorRequest;
 use App\Vendor;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,13 @@ class VendorController extends Controller
      */
     public function index()
     {
-        //
+        if (request()->vendors == 'deleted'){
+            $vendors = Vendor::onlyTrashed()->get();
+        } else{
+            $vendors = Vendor::all();
+        }
+
+        return view('vendors.index')->with(compact('vendors'));
     }
 
     /**
@@ -24,7 +31,7 @@ class VendorController extends Controller
      */
     public function create()
     {
-        //
+        return view('vendors.create');
     }
 
     /**
@@ -33,9 +40,22 @@ class VendorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveVendorRequest $saveVendorRequest)
     {
-        //
+        $vendor = new Vendor();
+        $vendor->vendor_code = $saveVendorRequest->input('vendor_code');
+        $vendor->zip = $saveVendorRequest->input('zip');
+        $vendor->supplier_name = $saveVendorRequest->input('supplier_name');
+        $vendor->country = $saveVendorRequest->input('country');
+        $vendor->contact_person = $saveVendorRequest->input('contact_person');
+        $vendor->phone = $saveVendorRequest->input('phone');
+        $vendor->address = $saveVendorRequest->input('address');
+        $vendor->fax = $saveVendorRequest->input('fax');
+        $vendor->city = $saveVendorRequest->input('city');
+        $vendor->email = $saveVendorRequest->input('email');
+        $vendor->state = $saveVendorRequest->input('state');
+        $vendor->save();
+        return back()->with('success','Vendor Created Successfully');
     }
 
     /**
@@ -46,7 +66,8 @@ class VendorController extends Controller
      */
     public function show(Vendor $vendor)
     {
-        //
+        return view('vendors.show')->with(compact('vendor'));
+
     }
 
     /**
@@ -57,7 +78,7 @@ class VendorController extends Controller
      */
     public function edit(Vendor $vendor)
     {
-        //
+        return view('vendors.edit')->with(compact('vendor'));
     }
 
     /**
@@ -67,19 +88,42 @@ class VendorController extends Controller
      * @param  \App\Vendor  $vendor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vendor $vendor)
+    public function update(SaveVendorRequest $saveVendorRequest, Vendor $vendor)
     {
-        //
+        $vendor->vendor_code = $saveVendorRequest->input('vendor_code');
+        $vendor->zip = $saveVendorRequest->input('zip');
+        $vendor->supplier_name = $saveVendorRequest->input('supplier_name');
+        $vendor->country = $saveVendorRequest->input('country');
+        $vendor->contact_person = $saveVendorRequest->input('contact_person');
+        $vendor->phone = $saveVendorRequest->input('phone');
+        $vendor->address = $saveVendorRequest->input('address');
+        $vendor->fax = $saveVendorRequest->input('fax');
+        $vendor->city = $saveVendorRequest->input('city');
+        $vendor->email = $saveVendorRequest->input('email');
+        $vendor->state = $saveVendorRequest->input('state');
+        $vendor->save();
+
+        return redirect()->route('vendor.index')->with('success','vendor Updated');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Vendor  $vendor
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Vendor $vendor)
     {
-        //
+        $vendor->delete();
+        return redirect()->route('vendor.index')->with('success','Vendor Deleted');
+    }
+
+    public function restore($id){
+        Vendor::onlyTrashed()->where('id', $id)->restore();
+        return redirect()->route('vendor.index')->with('success','Vendor Restored');
+    }
+
+    public function forceDelete($id){
+        Vendor::onlyTrashed()->where('id', $id)->forceDelete();
+        return redirect()->route('vendor.index')->with('success','Vendor Deleted');
     }
 }

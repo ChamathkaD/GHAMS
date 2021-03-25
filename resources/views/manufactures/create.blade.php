@@ -9,8 +9,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
 
-                    <li class="breadcrumb-item active"><a href="{{ route('hospital.index') }}"> Vendor</a></li>
-                    <li class="breadcrumb-item active">Create Vendor</li>
+                    <li class="breadcrumb-item active"><a href="{{ route('manufacture.index') }}"> Manufacture</a></li>
+                    <li class="breadcrumb-item active">Create Manufacture</li>
 
                 </ol>
 
@@ -25,22 +25,22 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-5"> Crate Vendor</h4>
+                    <h4 class="card-title mb-5"> Crate Manufacture</h4>
                     <div class="basic-form">
-                        <form action="{{ route('vendor.store') }}" method="post">
+                        <form action="{{ route('manufacture.store') }}" method="post">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Vendor Code</label>
+                                    <label>Manufacture Code</label>
                                     <input
                                         type="text"
-                                        class="form-control @error('vendor_code') is-invalid @enderror"
-                                        placeholder="Vendor Code"
-                                        name="vendor_code"
-                                        id="vendor_code"
-                                        value="{{ old('vendor_code') }}"
+                                        class="form-control @error('manufacture_code') is-invalid @enderror"
+                                        placeholder="Manufacture Code"
+                                        name="manufacture_code"
+                                        id="manufacture_code"
+                                        value="{{ old('manufacture_code') }}"
                                     >
-                                    @error('vendor_code')
+                                    @error('manufacture_code')
                                     <small class="invalid-feedback">
                                         {{ $message }}
                                     </small>
@@ -66,16 +66,16 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Supplier Name</label>
+                                    <label>Manufacturer Name</label>
                                     <input
                                         type="text"
-                                        class="form-control @error('supplier_name') is-invalid @enderror"
-                                        placeholder="Supplier Name"
-                                        name="supplier_name"
-                                        id="supplier_name"
-                                        value="{{ old('supplier_name') }}"
+                                        class="form-control @error('manufacture_name') is-invalid @enderror"
+                                        placeholder="Manufacturer Name"
+                                        name="manufacture_name"
+                                        id="manufacture_name"
+                                        value="{{ old('manufacture_name') }}"
                                     >
-                                    @error('supplier_name')
+                                    @error('manufacture_name')
                                     <small class="invalid-feedback">
                                         {{ $message }}
                                     </small>
@@ -231,7 +231,7 @@
 
 
 
-                            <button type="submit" class="btn btn-dark">Create Vendor</button>
+                            <button type="submit" class="btn btn-dark">Create Manufacture</button>
                         </form>
                     </div>
                 </div>

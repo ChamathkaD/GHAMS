@@ -9,8 +9,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
 
-                    <li class="breadcrumb-item active"><a href="{{ route('hospital.index') }}"> Vendor</a></li>
-                    <li class="breadcrumb-item active">Create Vendor</li>
+                    <li class="breadcrumb-item active"><a href="{{ route('manufacture.index') }}"> Manufacture</a></li>
+                    <li class="breadcrumb-item active">Edit Manufacture</li>
 
                 </ol>
 
@@ -25,22 +25,23 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-5"> Crate Vendor</h4>
+                    <h4 class="card-title mb-5"> Edit Manufacture</h4>
                     <div class="basic-form">
-                        <form action="{{ route('vendor.store') }}" method="post">
+                        <form action="{{ route('manufacture.update', $manufacture->id) }}" method="post">
                             @csrf
+                            @method('PUT')
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Vendor Code</label>
+                                    <label>Manufacture Code</label>
                                     <input
                                         type="text"
-                                        class="form-control @error('vendor_code') is-invalid @enderror"
-                                        placeholder="Vendor Code"
-                                        name="vendor_code"
-                                        id="vendor_code"
-                                        value="{{ old('vendor_code') }}"
+                                        class="form-control @error('manufacture_code') is-invalid @enderror"
+                                        placeholder="Manufacture Code"
+                                        name="manufacture_code"
+                                        id="manufacture_code"
+                                        value="{{ $manufacture->manufacture_code }}"
                                     >
-                                    @error('vendor_code')
+                                    @error('manufacture_code')
                                     <small class="invalid-feedback">
                                         {{ $message }}
                                     </small>
@@ -54,7 +55,7 @@
                                         placeholder="Zip"
                                         name="zip"
                                         id="zip"
-                                        value="{{ old('zip') }}"
+                                        value="{{ $manufacture->zip }}"
                                     >
                                     @error('zip')
                                     <small class="invalid-feedback">
@@ -66,16 +67,16 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label>Supplier Name</label>
+                                    <label>Manufacture Name</label>
                                     <input
                                         type="text"
-                                        class="form-control @error('supplier_name') is-invalid @enderror"
-                                        placeholder="Supplier Name"
-                                        name="supplier_name"
-                                        id="supplier_name"
-                                        value="{{ old('supplier_name') }}"
+                                        class="form-control @error('manufacture_name') is-invalid @enderror"
+                                        placeholder="Manufacture Name"
+                                        name="manufacture_name"
+                                        id="manufacture_name"
+                                        value="{{ $manufacture->manufacture_name }}"
                                     >
-                                    @error('supplier_name')
+                                    @error('manufacture_name')
                                     <small class="invalid-feedback">
                                         {{ $message }}
                                     </small>
@@ -89,7 +90,7 @@
                                         placeholder="Country"
                                         name="country"
                                         id="country"
-                                        value="{{ old('country') }}"
+                                        value="{{ $manufacture->country }}"
                                     >
                                     @error('country')
                                     <small class="invalid-feedback">
@@ -109,7 +110,7 @@
                                         placeholder="Contact Person"
                                         name="contact_person"
                                         id="contact_person"
-                                        value="{{ old('contact_person') }}"
+                                        value="{{ $manufacture->contact_person}}"
                                     >
                                     @error('contact_person')
                                     <small class="invalid-feedback">
@@ -125,7 +126,7 @@
                                         placeholder="Phone"
                                         name="phone"
                                         id="phone"
-                                        value="{{ old('phone') }}"
+                                        value="{{ $manufacture->phone }}"
                                     >
                                     @error('phone')
                                     <small class="invalid-feedback">
@@ -145,7 +146,7 @@
                                         placeholder="Address"
                                         name="address"
                                         id="address"
-                                        value="{{ old('address') }}"
+                                        value="{{ $manufacture->address}}"
                                     >
                                     @error('address')
                                     <small class="invalid-feedback">
@@ -161,7 +162,7 @@
                                         placeholder="Fax"
                                         name="fax"
                                         id="fax"
-                                        value="{{ old('fax') }}"
+                                        value="{{ $manufacture->fax }}"
                                     >
                                     @error('fax')
                                     <small class="invalid-feedback">
@@ -181,7 +182,7 @@
                                         placeholder="City"
                                         name="city"
                                         id="city"
-                                        value="{{ old('city') }}"
+                                        value="{{ $manufacture->city }}"
                                     >
                                     @error('city')
                                     <small class="invalid-feedback">
@@ -197,7 +198,7 @@
                                         placeholder="Email"
                                         name="email"
                                         id="email"
-                                        value="{{ old('email') }}"
+                                        value="{{ $manufacture->email}}"
                                     >
                                     @error('email')
                                     <small class="invalid-feedback">
@@ -217,7 +218,7 @@
                                         placeholder="State/Province"
                                         name="state"
                                         id="state"
-                                        value="{{ old('state') }}"
+                                        value="{{ $manufacture->state }}"
                                     >
                                     @error('state')
                                     <small class="invalid-feedback">
@@ -231,7 +232,7 @@
 
 
 
-                            <button type="submit" class="btn btn-dark">Create Vendor</button>
+                            <button type="submit" class="btn btn-dark">Update Manufacture</button>
                         </form>
                     </div>
                 </div>

@@ -52,6 +52,14 @@ Route::middleware('auth')->group(function (){
 
     //Vendor
     Route::resource('vendor','VendorController');
+    Route::get('vendor/restore/{id}','VendorController@restore')->name('vendor.restore');
+    Route::get('vendor/force-delete/{id}','VendorController@forceDelete')->name('vendor.forceDelete');
+
+    //manufacture
+
+    Route::resource('manufacture','ManufactureController');
+    Route::get('manufacture/restore/{id}','ManufactureController@restore')->name('manufacture.restore');
+    Route::get('manufacture/force-delete/{id}','ManufactureController@forceDelete')->name('manufacture.forceDelete');
 
 });
 

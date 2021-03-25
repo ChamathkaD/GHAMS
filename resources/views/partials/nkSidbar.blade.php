@@ -61,11 +61,20 @@
                     <i class="icon-people menu-icon"></i><span class="nav-text"> Vendors </span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('vendor.index') }}">All  Departments </a></li>
-                    <li><a href="{{ route('vendor.create') }}">Create  Departments </a></li>
+                    <li><a href="{{ route('vendor.index') }}">All  Vendors </a></li>
+                    <li><a href="{{ route('vendor.create') }}">Create  Vendors </a></li>
                 </ul>
             </li>
 
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="icon-basic-anchor menu-icon"></i><span class="nav-text"> Manufactures </span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('manufacture.index') }}">All  Manufactures </a></li>
+                    <li><a href="{{ route('manufacture.create') }}">Create  Manufactures </a></li>
+                </ul>
+            </li>
 
 
 
