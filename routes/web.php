@@ -61,6 +61,14 @@ Route::middleware('auth')->group(function (){
     Route::get('manufacture/restore/{id}','ManufactureController@restore')->name('manufacture.restore');
     Route::get('manufacture/force-delete/{id}','ManufactureController@forceDelete')->name('manufacture.forceDelete');
 
+    //accessory
+    Route::resource('accessory','AccessoryController');
+
+    //task
+    Route::resource('task','TaskController');
+    Route::get('task/restore/{id}','TaskController@restore')->name('task.restore');
+    Route::get('task/force-delete/{id}','TaskController@forceDelete')->name('task.forceDelete');
+
 });
 
 Auth::routes();

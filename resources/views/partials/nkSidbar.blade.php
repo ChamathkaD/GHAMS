@@ -76,6 +76,26 @@
                 </ul>
             </li>
 
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="icon-basic-anchor menu-icon"></i><span class="nav-text"> Accessories </span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('accessory.index') }}">All  Accessories </a></li>
+                    <li><a href="{{ route('accessory.create') }}">Create  Accessories </a></li>
+                </ul>
+            </li>
+
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="icon-grid menu-icon"></i><span class="nav-text"> Tasks </span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('task.index') }}">All  Tasks </a></li>
+                    <li><a href="{{ route('task.create') }}">Create  Tasks </a></li>
+                </ul>
+            </li>
+
 
 
 

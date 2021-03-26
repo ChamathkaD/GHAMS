@@ -30,7 +30,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"> Crate Contractor</h4>
+                    <h4 class="card-title"> Crate Accessory</h4>
                     <div class="basic-form">
                         <form action="{{ route('accessory.store') }}" method="post">
                             @csrf
@@ -43,14 +43,23 @@
 
                                     <select class="form-control" name="type" >
 
-                                        @foreach( \App\Contractor::types()  as $type)
+<!--                                        @foreach( \App\Contractor::types()  as $type)
                                             <option value="{{$type }}">{{ $type }}</option>
-                                        @endforeach
-
-
+                                        @endforeach-->
                                     </select>
-
                                 </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label>Description</label>
+                                        <textarea
+                                            type="text"
+                                            class="form-control"
+                                            name="description"
+                                            id="description"
+                                            placeholder="Description"
+                                        >   {{ old('description') }} </textarea>
+                                    </div>
                             </div>
 
                             <div class="form-row">
@@ -59,16 +68,25 @@
                                     <input
                                         type="text"
                                         class="form-control"
-                                        placeholder="Reference Code"
+                                        placeholder="Part No"
                                         name="reference_code"
                                         id="reference_code"
                                         value="#"
                                     >
+
+
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label class="m-t-20">Part Name</label>
-                                    <input type="text" class="form-control" placeholder="yyyy-mm-dd" id="mdate1" name="start_date"  value="{{ old('start_date')}}">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Part Name"
+                                        name="reference_code"
+                                        id="reference_code"
+                                        value="#"
+                                    >
                                 </div>
 
                             </div>
@@ -78,7 +96,7 @@
                                     <label>Serial</label>
                                     <input type="text"
                                            class="form-control"
-                                           placeholder="Contractor No"
+                                           placeholder="Serial"
                                            name="contractor_no"
                                            value="{{ old('contractor_no')}}"
 
@@ -86,7 +104,13 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="m-t-20">Model</label>
-                                    <input type="text" class="form-control" placeholder="yyyy-mm-dd" id="mdate2" name="end_date" value="{{ old('end_date')}}">
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Model"
+                                           name="contractor_no"
+                                           value="{{ old('contractor_no')}}"
+
+                                    >
                                 </div>
                             </div>
 
